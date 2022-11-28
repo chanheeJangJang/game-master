@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cream">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/GameStartBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+
+        <ImageButton
+            android:id="@+id/CreamBtn"
+            android:layout_width="410dp"
+            android:layout_height="350dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/appleone" />
+
+        <RadioGroup
+            android:id="@+id/RG1"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/ChkBx1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer1"
+                android:visibility="invisible" />
+
+            <RadioButton
+                android:id="@+id/ChkBx2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer2"
+                android:visibility="invisible" />
+
+            <RadioButton
+                android:id="@+id/ChkBx3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer3"
+                android:visibility="invisible" />
+
+            <RadioButton
+                android:id="@+id/ChkBx4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer4"
+                android:visibility="invisible" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/AnswerTryBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Try"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

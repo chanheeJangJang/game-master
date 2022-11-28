@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/text"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".story2">
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="143dp"
+        android:layout_height="155dp"
+        android:text="일단 끝"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="299dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

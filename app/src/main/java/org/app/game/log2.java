@@ -34,11 +34,13 @@ public class log2 extends AppCompatActivity {
     Cursor cursor;
 
    // static int f1 = Integer.parseInt(getg1());
-    static int k1;
-    static int k2;
-    static int k3;
-    static int k4;
-    static int k5;
+    static int k1=0;
+    static int k2=0;
+    static int k3=0;
+    static int k4=0;
+    static int k5=0;
+    static int k6=0;
+
 
 
     @Override
@@ -136,24 +138,26 @@ public class log2 extends AppCompatActivity {
         }
 
         public void createTable(SQLiteDatabase db) {
-            String sql = "CREATE TABLE " + tableName + "(id text, pw text, g1 INTEGER, g2 INTEGER, g3 INTEGER, g4 INTEGER, total INTEGER)";
-            try {///////////////////********************************
+            //String sql = "CREATE TABLE " + tableName + "(id text, pw text, g1 INTEGER, g2 INTEGER, g3 INTEGER, g4 INTEGER, g5 INTEGER, total INTEGER)";////////////////////////////////
+            String sql = "CREATE TABLE " + tableName + "(id text, pw text, g1 INTEGER, g2 INTEGER, g3 INTEGER, g4 INTEGER, g5 INTEGER)";
+            try {
                 db.execSQL(sql);
             } catch (SQLException e) {
             }
         }
 
-        public void insertUser(SQLiteDatabase db, String id, String pw, Integer g1, Integer g2, Integer g3, Integer g4, Integer total) {
+        public void insertUser(SQLiteDatabase db, String id, String pw) {
             Log.i("tag", "회원가입을 했을때 실행함");
             db.beginTransaction();
             try {
-                String sql = "INSERT INTO " + tableName + "(id, pw,g1,g2,g3,g4,total)" + "values('" + id + "', '"+ pw +"',0,0,0,0,0)";
-                k1=g1;
-                k2=g2;
-                k3=g3;
-                k4=g4;
-                k5=total;
+                String sql = "INSERT INTO " + tableName + "(id, pw)" + "values('" + id + "', '"+ pw +"')";
 
+                k1=0;
+                k2=0;
+                k3=0;
+                k4=0;
+                k5=0;
+                k6=0;
                 db.execSQL(sql);///////////////////**/*******************************
                 db.setTransactionSuccessful();
             } catch (Exception e) {
@@ -165,32 +169,31 @@ public class log2 extends AppCompatActivity {
 
 
 
-
-
-
-
     }
-    public static void updateUsers5(int g1s, int g2s, int g3s, int g4s, int ts) {
+    public static void updateUsers5(int g1s, int g2s, int g3s, int g4s, int g5s) {
 
         database = helper.getWritableDatabase();
         Cursor cursor;
-//        database.execSQL("UPDATE Users SET g1 = '"+ g1s +"', g2 = '"+ g2s +"', g3 = '"+ g3s +"', g4 = '"+ g4s +"', total = '"+ ts +"' WHERE id ='"+etext1.getText().toString()+"'");
-
+/*
         g1s = g1s + k1;
         g2s = g2s + k2;
         g3s = g3s + k3;
         g4s = g4s + k4;
-        ts = ts + k5;
+        g5s = g5s + k5;
+       // ts = ts + k6;///////////////////////////////////////////////////////////////////////////////////////////
+*/
 
-
-        database.execSQL("UPDATE Users SET g1 = '"+g1s+"' , g2 = '"+ g2s +"', g3 = '"+ g3s +"', g4 = '"+ g4s +"', total = '"+ ts +"' WHERE id ='"+etext1.getText().toString()+"'");
+        //database.execSQL("UPDATE Users SET g1 = '"+ g1s +"' , g2 = '"+ g2s +"', g3 = '"+ g3s +"', g4 = '"+ g4s +"', g5 = '"+ g5s +"', total = '"+ ts +"' WHERE id ='"+etext1.getText().toString()+"'");
+        database.execSQL("UPDATE Users SET g1 = '"+ g1s +"' , g2 = '"+ g2s +"', g3 = '"+ g3s +"', g4 = '"+ g4s +"', g5 = '"+ g5s +"' WHERE id ='"+etext1.getText().toString()+"'");
         database.close();
+        /*
         k1=g1s;
         k2=g2s;
         k3=g3s;
         k4=g4s;
-        k5=ts;
-
+        k5=g5s;
+       // k6=ts;  /////////////////////////////////////////////////////////////////////////////////////////////////
+*/
     }
 
 
@@ -268,7 +271,21 @@ public class log2 extends AppCompatActivity {
         database.close();
         return strG4;
     }
-    public static String gettotal(){
+
+    public static String getg5(){
+        database = helper.getReadableDatabase();
+        Cursor cursor;
+        cursor = database.rawQuery("SELECT g5 FROM Users WHERE id ='"+etext1.getText().toString()+"'",null);
+        String strG5 = "";
+        while (cursor.moveToNext()){
+            strG5 += cursor.getString(0);
+        }
+        cursor.close();
+        database.close();
+        return strG5;
+    }
+
+    public static String gettotal(){  //int in = String.valueOf(str);
         database = helper.getReadableDatabase();
         Cursor cursor;
         cursor = database.rawQuery("SELECT total FROM Users WHERE id ='"+etext1.getText().toString()+"'",null);
@@ -280,6 +297,7 @@ public class log2 extends AppCompatActivity {
         database.close();
         return strTOTAL;
     }
+
 
 
 }

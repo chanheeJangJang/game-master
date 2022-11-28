@@ -3,6 +3,8 @@ package org.app.game;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,7 +22,7 @@ import java.util.TimerTask;
 
 public class sub extends AppCompatActivity {
 
-    int seconds =30;
+    int seconds =20;
     int count=0;
     int score =0;
 
@@ -42,7 +44,7 @@ public class sub extends AppCompatActivity {
         setContentView(R.layout.activity_sub);
 
         setTitle("딸기를 찾아라!");
-        textid = (TextView) findViewById(R.id.textView);////////////
+        //textid = (TextView) findViewById(R.id.textView);////////////
         text1 = (TextView) findViewById(R.id.textView1);
         text2 = (TextView) findViewById(R.id.textView2);
         text3 = (TextView) findViewById(R.id.textView3);
@@ -93,14 +95,15 @@ public class sub extends AppCompatActivity {
                             if(count>=4 && count<7) {
                                 textSec.setText("Good");
                                 score =2;
+                               // log2.updateUsers5(2,0,0,0,0,2);  //total은 최종적으로 올릴려고함
                                 timer.cancel();
-                                database.execSQL("UPDATE BAKINGGAME SET g1 = 2 WHERE id = '" + textid.getText().toString() + "'" );
-                                database.close();
+
 
                             }
                             else if(count<4){
                                 textSec.setText("Bad");
                                 score =1;
+                                //log2.updateUsers5(1,0,0,0,0,1);
                                 timer.cancel();
 
                             }
@@ -118,9 +121,12 @@ public class sub extends AppCompatActivity {
 
                             textSec.setText("Perfect");
                             score=3;
+                            //log2.updateUsers5(3,0,0,0,0,3);
 
 
                             timer.cancel();
+
+
                             /*
                             try {
                                 btn2.setVisibility(View.VISIBLE);
@@ -203,23 +209,33 @@ public class sub extends AppCompatActivity {
 
         btn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(sub.this, story.class);///////
+                //Intent intent = new Intent(sub.this, quiz.class);///////
+                //startActivity(intent);//////////////////////////////////
 
-                if(count == 7) {
-                    startActivity(intent);//////////////////////////////////
+                AlertDialog.Builder gameover_dlg=new AlertDialog.Builder(sub.this);
+                gameover_dlg.setTitle("게임 종료");
+                if(score==1){
+                    gameover_dlg.setMessage("Bad");
+                    log2.updateUsers5(1,0,0,0,0);
                 }
+                else if(score==2){
+                    gameover_dlg.setMessage("Good");
+                    log2.updateUsers5(2,0,0,0,0);
+                }
+                else if(score==3){
+                    gameover_dlg.setMessage("Perfect!");
+                    log2.updateUsers5(3,0,0,0,0);
+                }
+                gameover_dlg.setPositiveButton("다음 단계로", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(sub.this, quiz.class);
+                        startActivity(intent);
+                    }
+                });
+                gameover_dlg.show();
 
             }
         });
-
-
-
-
-
-
-
-
-
 
     }
 }

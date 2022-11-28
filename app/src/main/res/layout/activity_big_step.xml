@@ -6,50 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".bigStep">
 
-    <ImageView
-        android:id="@+id/imageViewbigback"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="151dp"
+        android:layout_height="129dp"
+        android:text="여기는 큰 단계를 보여주는 창으로 생각했습니다."
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/bitstepview" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButtonstraw"
-        android:layout_width="32dp"
-        android:layout_height="31dp"
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
-        app:layout_constraintStart_toStartOf="@+id/imageViewbigback"
-        app:layout_constraintTop_toTopOf="@+id/imageViewbigback"
-        app:layout_constraintVertical_bias="0.425"
-        app:srcCompat="@drawable/cakeimg3" />
-
-    <ImageButton
-        android:id="@+id/imageButtonmacaron"
-        android:layout_width="32dp"
-        android:layout_height="31dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewbigback"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintStart_toStartOf="@+id/imageViewbigback"
-        app:layout_constraintTop_toTopOf="@+id/imageViewbigback"
-        app:layout_constraintVertical_bias="0.425"
-        app:srcCompat="@drawable/macaronimg2" />
-
-    <ImageView
-        android:id="@+id/imageViewlock1"
-        android:layout_width="18dp"
-        android:layout_height="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButtonmacaron"
-        app:layout_constraintEnd_toEndOf="@+id/imageButtonmacaron"
-        app:layout_constraintStart_toStartOf="@+id/imageButtonmacaron"
-        app:layout_constraintTop_toTopOf="@+id/imageButtonmacaron"
-        app:srcCompat="@drawable/lock" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        tools:layout_editor_absoluteX="161dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,7 +62,6 @@ public class signup extends AppCompatActivity {
 
                 String id = etextid.getText().toString();
                 String pw = etextpw.getText().toString();
-                Integer g1 = 0, g2 = 0, g3 = 0, g4 = 0, total = 0;////****************
 
                 if(id.length() == 0 || pw.length() == 0) {
                     //아이디와 비밀번호는 필수 입력사항입니다.
@@ -79,8 +78,8 @@ public class signup extends AppCompatActivity {
                     Toast toast = Toast.makeText(signup.this, "존재하는 아이디입니다.", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
-                    helper.insertUser(database,id,pw,0,0,0,0,0);
-                    //helper.updateUsers(database,3,0,0,0,0);
+                    helper.insertUser(database,id,pw);
+                    //log2.updateUsers5(0,0,0,0,0,0);
                     Toast toast = Toast.makeText(signup.this, "가입이 완료되었습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT);
                     toast.show();
                     Intent intent = new Intent(getApplicationContext(),log2.class);

@@ -16,7 +16,7 @@ public class log extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
-        setTitle("딸기를 찾아라!");
+        setTitle("BAKING PAPA");
 
         imgbtn_str = (ImageButton) findViewById(R.id.imageButtonstrat);
         imgbtn_in = (ImageButton) findViewById(R.id.imageButtonin);
